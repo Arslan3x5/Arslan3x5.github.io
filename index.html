@@ -27,7 +27,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 nav{display:flex;align-items:center;gap:1.5rem;font-size:.95rem}
 nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--ink)}
 nav a.cta{background:var(--mark);color:var(--mark-ink);padding:.45rem 1rem;border-radius:9px;font-weight:700}
-.tg{background:none;border:1px solid var(--line);color:var(--ink);border-radius:9px;padding:.35rem .7rem;cursor:pointer;font:inherit;font-size:.9rem}
+.tg{background:none;border:1px solid var(--line);color:var(--ink);border-radius:9px;padding:.4rem .6rem;cursor:pointer;font:inherit;font-size:1.05rem;line-height:1}
 .hero{background:radial-gradient(700px 360px at 85% 0,color-mix(in srgb,var(--mark) 24%,transparent),transparent),radial-gradient(520px 320px at 0 40%,color-mix(in srgb,#2fbf71 16%,transparent),transparent)}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,5vw,4rem);align-items:center;padding-top:clamp(2.5rem,7vw,5rem);padding-bottom:clamp(3rem,7vw,5rem)}
 .avail{display:inline-flex;align-items:center;gap:.55rem;margin:0 0 1.2rem;padding:.35rem .9rem;border:1px solid var(--line);border-radius:99px;font-size:.9rem;color:var(--muted);background:var(--panel)}
@@ -93,7 +93,7 @@ footer{padding:1.8rem 0;color:var(--muted);font-size:.9rem}
 <header><div class="wrap">
   <a class="brand" href="#top"><i>AR</i>Arslan Riaz</a>
   <nav><a class="h" href="#work">Projects</a><a class="h" href="#skills">Skills</a><a class="h" href="#process">Process</a>
-  <button class="tg" id="theme" type="button" aria-label="Switch between light and dark mode">Theme</button>
+  <button class="tg" id="theme" type="button" aria-label="Switch between light and dark mode" title="Switch light or dark mode">&#127769;</button>
   <a class="cta" href="#contact">Hire me</a></nav>
 </div></header>
 
@@ -208,11 +208,15 @@ footer{padding:1.8rem 0;color:var(--muted);font-size:.9rem}
 
 <script>
 const root=document.documentElement;
-document.getElementById("theme").addEventListener("click",()=>{
-  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme=dark?"light":"dark";
+const btn=document.getElementById("theme");
+const isDark=()=>root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+const paint=()=>{btn.textContent=isDark()?"\u2600\uFE0F":"\u{1F319}"};
+btn.addEventListener("click",()=>{
+  root.dataset.theme=isDark()?"light":"dark";
   try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}
+  paint();
 });
+paint();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach(el=>io.observe(el));
 </script>
