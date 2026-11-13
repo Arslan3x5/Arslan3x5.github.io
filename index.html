@@ -54,7 +54,7 @@ h1{margin:0 0 1.1rem;font-size:clamp(2.3rem,5.2vw,3.9rem);line-height:1.03;lette
 section{padding:clamp(3rem,7vw,5.5rem) 0}
 h2{margin:0 0 .6rem;font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.035em}
 .sub{margin:0 0 2.2rem;color:var(--muted);max-width:36em}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.6rem}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:transform .2s}
 .card:hover{transform:translateY(-4px)}
 .card .body{padding:1.4rem 1.5rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
@@ -112,13 +112,13 @@ footer{padding:1.8rem 0;color:var(--muted);font-size:.9rem}
 <div class="stats"><div class="wrap">
   <div><strong>22</strong><span>Upwork jobs completed</span></div>
   <div><strong>5.0</strong><span>average client rating</span></div>
-  <div><strong>2</strong><span>live projects, public code</span></div>
+  <div><strong>4</strong><span>projects with public code</span></div>
   <div><strong>3</strong><span>certificates and badges</span></div>
 </div></div>
 
 <section id="work"><div class="wrap">
   <h2 class="rv">Projects you can try</h2>
-  <p class="sub rv">Both are live, tested and open source. Open them, click around, and read the code.</p>
+  <p class="sub rv">All four are tested and open source. Three have live demos, and AskMyDocs has a demo video.</p>
   <div class="grid2">
     <article class="card rv">
       <img class="shot" src="assets/sales-insights.png" alt="Sales Insights dashboard" loading="lazy" onerror="this.removeAttribute('src')">
@@ -138,6 +138,26 @@ footer{padding:1.8rem 0;color:var(--muted);font-size:.9rem}
         <p class="sm">Each user sees only their own tasks, 12 automated tests run on every push, and the app is deployed with a PostgreSQL database.</p>
         <div class="tags"><span>Django</span><span>PostgreSQL</span><span>JavaScript</span><span>Docker</span><span>Vercel</span></div>
         <div class="links"><a href="https://taskflow1-six.vercel.app">Live demo</a><a href="https://github.com/Arslan3x5/taskflow">Source code</a></div>
+      </div>
+    </article>
+    <article class="card rv">
+      <img class="shot" src="assets/hf-trend-tracker.png" alt="HF Trend Tracker dashboard showing the fastest-rising items on Hugging Face" loading="lazy" onerror="this.removeAttribute('src')">
+      <div class="body">
+        <h3>HF Trend Tracker</h3>
+        <p>A daily history of what is trending on Hugging Face, so you can see what is rising, not just what is big.</p>
+        <p class="sm">A scheduled job snapshots the top 300 models, datasets and Spaces every day and publishes an open dataset. A dashboard shows the fastest risers and new entrants, and an MCP server lets AI agents ask for trends.</p>
+        <div class="tags"><span>Python</span><span>pandas</span><span>Gradio</span><span>GitHub Actions</span><span>MCP</span></div>
+        <div class="links"><a href="https://huggingface.co/spaces/arslan3x5/hf-trend-tracker">Live dashboard</a><a href="https://huggingface.co/datasets/arslan3x5/hf-trend-history">Dataset</a><a href="https://github.com/Arslan3x5/hf-trend-tracker">Source code</a></div>
+      </div>
+    </article>
+    <article class="card rv">
+      <img class="shot" src="assets/askmydocs.png" alt="AskMyDocs answer showing a cited sentence with its file and page" loading="lazy" onerror="this.removeAttribute('src')">
+      <div class="body">
+        <h3>AskMyDocs</h3>
+        <p>Ask questions about your own PDFs on your own server. No AI service, and no data leaving the machine.</p>
+        <p class="sm">Answers show the exact sentence with its file and page, and it says "Not found" instead of guessing. An accuracy page scores your own test questions, and offline mode blocks outgoing connections.</p>
+        <div class="tags"><span>Python</span><span>Django</span><span>BM25 search</span><span>Docker</span><span>Tests</span></div>
+        <div class="links"><a href="">Demo video</a><a href="https://github.com/Arslan3x5/ask-my-docs">Source code</a></div>
       </div>
     </article>
   </div>
